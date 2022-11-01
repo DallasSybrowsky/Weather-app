@@ -1,0 +1,29 @@
+:root {
+  font-size: 62.5%; /*Setting root font size to 10px (62.5% of 16px) for easier manipulation elsewhere*/
+  --light-main: #eee;
+  --blue-main: #1d0964;
+  --blue-secondary: #1b1630;
+  font-family: Calibri, Verdana, sans-serif;
+}
+
+.header {
+  background-image: linear-gradient(
+    to right,
+    var(--blue-main),
+    var(--blue-secondary)
+  );
+  color: var(--light-main);
+}
+
+h1 {
+  margin: 0rem;
+  padding: 0.5rem 2.5rem;
+}
+
+body {
+  font-size: 2rem;
+}
+
+.city-input {
+  font-size: 2rem;
+}
