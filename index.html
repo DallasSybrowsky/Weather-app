@@ -16,14 +16,22 @@
     <link rel="icon" href="data:;base64,=" />
   </head>
   <body>
-    <div class="header">
+    <header class="header">
       <h1>Weather Dashboard</h1>
+    </header>
+    <div class="sidenav">
+      <form class="city-input">
+        <label for="cityName">Search for a city:</label><br />
+        <input
+          type="text"
+          id="City"
+          placeholder="City name"
+          class="form-input"
+          name="cityName"
+        /><br />
+        <input type="submit" class="btn btn-primary btn-lg" value="Submit" />
+      </form>
     </div>
-    <form class="city-input">
-      <label for="cityName">Search for a city:</label><br>
-      <input type="text" id="City" placeholder="City name" class="form-input" name="cityName"><br>
-      <input type="submit" class="btn btn-primary btn-lg" value="Submit">
-    </form>
 
     <!-- JavaScript Bundle with Popper -->
     <script src="./assets/js/script.js"></script>

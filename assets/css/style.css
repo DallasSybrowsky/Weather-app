@@ -17,7 +17,8 @@
 
 h1 {
   margin: 0rem;
-  padding: 0.5rem 2.5rem;
+  padding: .75rem 2.5rem;
+  font-size: 3rem;
 }
 
 body {
@@ -26,4 +27,11 @@ body {
 
 .city-input {
   font-size: 2rem;
+  padding: 0.5rem;
+}
+
+.sidenav {
+  height: 100%;
+  position: fixed;
+  background-color: transparent;
 }
