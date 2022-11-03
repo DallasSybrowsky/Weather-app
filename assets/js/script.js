@@ -36,15 +36,6 @@ const currentForecast = (event) => {
     event.preventDefault();
     let currentURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
 }
-    // fetch(currentURL)
-    //     .then(function(response){
-    //         return response.json()
-    //     })
-    //     .then(function(data){
-    //         console.log(data)
-    //         console.log(data.list[0].lat)
-    //     });    
-
 searchBtn.addEventListener('click', weatherSearch)
 
 // Save seaches to local storage
