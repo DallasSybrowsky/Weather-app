@@ -8,20 +8,33 @@ const weatherSearch = (event) => {
     event.preventDefault();
     let searchInput = searchEl.value.trim();
     let forecastURL = `https://api.openweathermap.org/geo/1.0/direct?q=${searchInput}&appid=${APIKey}&units=imperial`;
-    // let currentURL = `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=${APIKey}&units=imperial`;
+    
     fetch(forecastURL)
         .then(function(response){
             return response.json()
         })
         .then(function(data){
             console.log(data)
-            console.log(data.list[0].main.temp)
+            console.log(data[0].lat)
+    let lati = forecastURL.response(data[0].lat);
+    let longi = forecastURL.response(data[0].lon);
         });
-    }
+    
+    let currentURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lati}&lon=${longi}&appid=${APIKey}&units=imperial`;
+    fetch(currentURL)
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(data){
+            console.log(data)
+        });
+        console.log(lati);
+        console.log(longi);
+    };
 
 const currentForecast = (event) => {
     event.preventDefault();
-    let
+    let currentURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
 }
     // fetch(currentURL)
     //     .then(function(response){

@@ -6,7 +6,7 @@
   font-family: Calibri, Verdana, sans-serif;
 }
 
-.header {
+.header h1 {
   background-image: linear-gradient(
     to right,
     var(--blue-main),
