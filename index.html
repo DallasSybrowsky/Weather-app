@@ -19,21 +19,68 @@
     <header class="header">
       <h1>Weather Dashboard</h1>
     </header>
-    <div class="sidenav">
-      <form class="city-input">
-        <label for="cityName">Search for a city:</label><br />
-        <input
-          type="text"
-          id="City"
-          placeholder="City name"
-          class="form-input"
-          name="cityName"
-        /><br />
-        <input type="submit" class="btn btn-primary btn-lg" value="Submit" />
-      </form>
-    </div>
-
+    <main class="container-fluid row mt-5">
+      <div class="col-3 sidenav">
+          <p>Search for a city:</p>
+          <input
+            type="text"
+            id="city"
+            placeholder="City name"
+            class="city-input"
+            name="cityName"/>
+          <button class="btn">Submit</button>
+      </div>
+      <div class="col-7 weather-box">
+        <div class="forecast">
+          <p class="font-weight bold current-p">City Name</p>
+          <p class="temp-p">Temp</p>
+          <p class="wind-p">Wind</p>
+          <p class="humidity-p">Humidity</p>
+        </div>
+        <div class= "col-12 row d-flex five-day justify-content-around">
+          <h2 class="mx-auto">5 Day forecast:</h2>
+          <div id="days" class="col-2 row day-1">
+            <p class="date-1">Tomorrow</p>
+            <p class="icon-day-1">ICON</p>
+            <p class="day-1-temp">TEMP</p>
+            <p class="day-1-wind">WIND</p>
+            <p class="day-1-humid">%</p>
+          </div>
+          <div id="days" class="col-2 row day-2">
+            <p class="date-2">2 days from now</p>
+            <p class="icon-day-2">ICON</p>
+            <p class="day-2-temp">TEMP</p>
+            <p class="day-2-wind">WIND</p>
+            <p class="day-2-humid">%</p>
+          </div>
+          <div id="days" class="col-2 row day-3">
+            <p class="date-3">3 days from now</p>
+            <p class="icon-day-3">ICON</p>
+            <p class="day-3-temp">TEMP</p>
+            <p class="day-3-wind">WIND</p>
+            <p class="day-3-humid">%</p>
+          </div>
+          <div id="days" class="col-2 row day-4">
+            <p class="date-4">4 days from now</p>
+            <p class="icon-day-4">ICON</p>
+            <p class="day-4-temp">TEMP</p>
+            <p class="day-4-wind">WIND</p>
+            <p class="day-4-humid">%</p>
+          </div>
+          <div id="days" class="col-2 row day-5">
+            <p class="date-5">5 days from now</p>
+            <p class="icon-day-5">ICON</p>
+            <p class="day-5-temp">TEMP</p>
+            <p class="day-5-wind">WIND</p>
+            <p class="day-5-humid">%</p>
+          </div>
+        </div>
+      </div>
+      
+    </main>
     <!-- JavaScript Bundle with Popper -->
     <script src="./assets/js/script.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
+
   </body>
 </html>

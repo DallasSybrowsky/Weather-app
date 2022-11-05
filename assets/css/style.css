@@ -14,10 +14,19 @@
   );
   color: var(--light-main);
 }
+.btn {
+  width: 100%;
+  font-size: 1.5rem;
+  background-color: var(--blue-main);
+  color: var(--light-main);
+  padding: 0.5rem 0rem;
+  margin: 0.5rem 0rem;
+  border-radius: 1rem;
+}
 
 h1 {
   margin: 0rem;
-  padding: .75rem 2.5rem;
+  padding: 0.75rem 2.5rem;
   font-size: 3rem;
 }
 
@@ -32,6 +41,26 @@ body {
 
 .sidenav {
   height: 100%;
-  position: fixed;
-  background-color: transparent;
+}
+
+.weather-box {
+  padding: 0;
+}
+
+#days {
+  border: 0.25rem var(--blue-main) solid;
+  background-color: var(--blue-main);
+  border-radius: 1rem;
+  color: var(--light-main);
+  margin: 1rem;
+}
+.forecast {
+  border: 0.25rem var(--blue-main) solid;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.five-day {
+  border: 0.25rem var(--blue-main) solid;
+  border-radius: 1rem;
+  padding: 1rem;
 }
