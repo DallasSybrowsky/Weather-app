@@ -3,6 +3,7 @@
   --light-main: #eee;
   --blue-main: #1d0964;
   --blue-secondary: #1b1630;
+  --grey: #a1a1a1;
   font-family: Calibri, Verdana, sans-serif;
 }
 
@@ -14,19 +15,34 @@
   );
   color: var(--light-main);
 }
-.btn {
+
+.btn, .btn:hover {
   width: 100%;
   font-size: 1.5rem;
   background-color: var(--blue-main);
   color: var(--light-main);
   padding: 0.5rem 0rem;
-  margin: 0.5rem 0rem;
+  margin: 0.5rem 0rem 1rem 0rem;
   border-radius: 1rem;
 }
 
-h1 {
+.city-btn {
+  width: 100%;
+  font-size: 1.5rem;
+  background-color: var(--grey);
+  color: var(--blue-secondary);
+  padding: 0.5rem 0rem;
+  margin: 0.5rem 0rem;
+  border-radius: 1rem;
+}
+.separator {
+  border-bottom: .2rem solid var(--blue-secondary);
+}
+
+.mx-auto {
+  justify-content: center;
   margin: 0rem;
-  padding: 0.75rem 2.5rem;
+  padding: 1rem 2.5rem;
   font-size: 3rem;
 }
 
@@ -42,7 +58,7 @@ body {
 
 .sidenav {
   height: 100%;
-  border-bottom: .2rem solid var(--blue-secondary);
+  border-bottom: 0.2rem solid var(--blue-secondary);
 }
 
 .weather-box {
@@ -53,9 +69,8 @@ body {
   font-size: 2.5rem;
 }
 
-.container-fluid{
+.container-fluid {
   margin: 5rem 0rem 0rem 0rem;
-
 }
 
 #days {
@@ -63,7 +78,7 @@ body {
   background-color: var(--blue-main);
   border-radius: 1rem;
   color: var(--light-main);
-  padding: .5rem 0rem
+  padding: 0.5rem 0rem;
 }
 
 .forecast {
@@ -86,6 +101,10 @@ body {
   justify-content: center;
 }
 
-.icon-img{
+.icon-img {
   padding: 0rem;
+}
+
+#history {
+  padding-bottom: .5rem;
 }

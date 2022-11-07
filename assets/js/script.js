@@ -1,11 +1,11 @@
 // Variables
-let cities = [];
+let cities;
 const searchBtn = document.querySelector(".btn");
 const searchEl = document.querySelector("#city");
 const citySearchInput = document.querySelector("#searched-city");
 const forecast = document.querySelector("#forecast");
 const forecastContainerEl = document.querySelector("#fiveday-div");
-const recentSearchBtnEl = document.querySelector("#recent-search-btn");
+const recentSearchBtnEl = document.querySelector("#history");
 const currentWeatherEl = document.querySelector("#current-weather-div");
 let forecastCity = document.querySelector(".current-p");
 let forecastWind = document.querySelector(".wind-p");
@@ -40,7 +40,7 @@ const formSubmission = function (event) {
 
 // API calls
 const getForecast = (event) => {
-  event.preventDefault();
+//   event.preventDefault();
   let searchInput = searchEl.value.trim();
   let geoLocURL = `https://api.openweathermap.org/geo/1.0/direct?q=${searchInput}&appid=${APIKey}&units=imperial`;
 
@@ -53,7 +53,42 @@ const getForecast = (event) => {
       fiveDayForecast(lat, lon);
     })
     .catch((error) => console.log("error", error));
+    // Saves searches to local storage
+    let oldSearches = localStorage.getItem("searchInput") || [];
+    var parsedOldSearches = oldSearches.length === 0 ? [] : JSON.parse(oldSearches);
+    if (!parsedOldSearches.includes(searchInput)) {
+        parsedOldSearches.push(searchInput);
+    localStorage.setItem("searchInput", JSON.stringify(parsedOldSearches));
+        }
+    createRecentButtons();
+    // cities = JSON.parse(localStorage.setItem("cities")) ?? [];
+    // cities.push(searchEl);
 };
+ 
+var createRecentButtons = function () {
+    var data = localStorage.getItem("searchInput") || [];
+    var parsedOldSearches = data.length === 0 ? [] : JSON.parse(data);
+    console.log(parsedOldSearches);
+    var template = "";
+    if (parsedOldSearches.length > 0) {
+      parsedOldSearches.forEach(function (cityName) {
+        template += `
+                  <button class="city-btn">${cityName}</button>
+              `;
+      });
+    }
+  
+    document.querySelector("#history").innerHTML = template;
+  };
+  
+  createRecentButtons();
+  // this is the history on click function
+  document.querySelector("#history").addEventListener("click", function (event) {
+    var cityName = event.target.textContent;
+  
+    getForecast(cityName);
+  });
+  
 
 const currentForecast = (lat, lon) => {
   let currentURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${APIKey}&units=imperial`;
@@ -97,9 +132,7 @@ const currentForecast = (lat, lon) => {
       forecastTemp.innerHTML =
         "Temperature: " + Math.round(result.main.temp) + "°F";
       forecastWind.innerHTML =
-        "Wind from: " +
-        result.wind.deg +
-        " at " +
+        "Wind speed: " +
         Math.round(result.wind.speed / 1.609344) +
         " mph";
       forecastHumid.innerHTML = "Humidity: " + result.main.humidity + "%";
@@ -112,9 +145,9 @@ const fiveDayForecast = (lat, lon) => {
   fetch(fiveDayURL)
     .then((response) => response.json())
     .then(function (result) {
-      console.log(result);
+    //   console.log(result);
     //   console.log(result.list[3].weather[0].icon);
-      console.log(result.list[0].main.humidity);
+    //   console.log(result.list[0].main.humidity);
 
       for (i = 0; i < result.list.length; i++) {
         if (
@@ -132,12 +165,12 @@ const fiveDayForecast = (lat, lon) => {
     let fiveDayCard = "";
     for (i=0; i<5; i++){
         fiveDayCard += `
-        <div id="days" class="col-2 row day-1">
-            <p class="date-1">${fiveDayDate[i]}</p>
+        <div id="days" class="col-2 row day-p">
+            <p class="date-p">${fiveDayDate[i]}</p>
             <img class="icon-img" src="https://openweathermap.org/img/w/${fiveDayIcon[i]}.png" style="width:50px;height:50px;"></img>
-            <p class="day-1-temp">${"Temp: " + Math.round(fiveDayTemp[i]) + "°F"}</p>
-            <p class="day-1-wind">${"Wind: " + Math.round(fiveDayWind[i]) + " mph"}</p>
-            <p class="day-1-humid">${"Humidity: " + Math.round(fiveDayHumidity[i]) + "%"}</p>
+            <p class="p-temp">${"Temp: " + Math.round(fiveDayTemp[i]) + "°F"}</p>
+            <p class="p-wind">${"Wind: " + Math.round(fiveDayWind[i]) + " mph"}</p>
+            <p class="p-humid">${"Humidity: " + Math.round(fiveDayHumidity[i]) + "%"}</p>
           </div>`
     };
     forecastFiveDay.innerHTML = fiveDayCard;
@@ -150,13 +183,18 @@ const fiveDayForecast = (lat, lon) => {
 };
 
 // Saves recent searches to local storage
-// let saveCities = function(searchEl) {
-//     cities = JOSN.parse(localStorage.setItem("cities")) ?? [];
-//     cities.push(searchEl);
-//     localStorage.setItem('cities', JSON.stringify(cities));
-// }
+// let saveCities = function(searchInput) {
+//     let oldSearches = localStorage.getItem("searchInput") || [];
+//     var parsedOldSearches = oldSearches.length === 0 ? [] : JSON.parse(oldSearches);
+//     if (!parsedOldSearches.includes(searchInput)) {
+//         parsedOldSearches.push(searchInput);
 
+//     // cities = JSON.parse(localStorage.setItem("cities")) ?? [];
+//     // cities.push(searchEl);
+//     localStorage.setItem('searchInput', JSON.stringify(searchInput));
+//     }
+// };
 // Event handlers
 searchBtn.addEventListener("click", getForecast);
 // searchBtn.addEventListener("click", saveCities);
-// recentSearchBtnEl.addEventListener("click", newFunction);
+// recentSearchBtnEl.addEventListener("click", getForecast(event.target));

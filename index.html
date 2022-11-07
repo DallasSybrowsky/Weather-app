@@ -16,10 +16,10 @@
   </head>
   <body>
     <header class="header">
-      <h1>Weather Dashboard</h1>
+      <h1 class="mx-auto d-flex">Weather Dashboard</h1>
     </header>
-    <main class="container-fluid row mt-5 ">
-      <div class="col-2 sidenav">
+    <main class="container-fluid row mt-5 ">  
+      <div class="col-3 sidenav">
           <p>Search for a city:</p>
           <input
             type="text"
@@ -28,7 +28,9 @@
             class="city-input"
             name="cityName"/>
           <button class="btn">Submit</button>
-      </div>
+          <p class="separator">Recent Searches:</p>
+          <div class="searchHistory" id="history"></div>
+        </div>
       <div class="col-9 weather-box">
         <div class="forecast">
           <h2 id="current-city" class="font-weight bold current-p">Current Forecast:</h2>
