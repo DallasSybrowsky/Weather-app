@@ -1,6 +1,8 @@
 # Weather Dashboard
 
-## Your Task
+## Background
+
+THis week's assignment was to create a weather dashboard with current forecast as well as a 5-day forecast for a city input to the search bar. The HTML, CSS, and JavaScript were all created by me.
 
 Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
 
